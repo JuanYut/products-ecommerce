@@ -47,3 +47,32 @@ h2 {
   display: flex;
   width: 45px;
 }
+
+/* ORDER */
+.order,
+.order-title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #34495e;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  transition: all 0.2s;
+}
+
+.order:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.order-title {
+  padding-bottom: 0;
+  color: #dddd55;
+  font-weight: bold;
+}
+
+.order p {
+  color: white;
+  margin-bottom: 0.5rem;
+}
