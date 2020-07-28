@@ -38,7 +38,6 @@ function Form({ newOrder }) {
 
   // Extraer los valores
   const { items, shippingMethod, note, units, dates } = order;
-  console.log(items);
 
   // * Submit del formulario
   const handleSubmit = (e) => {
