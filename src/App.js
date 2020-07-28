@@ -65,6 +65,7 @@ function App() {
           <div className="one-half column">
             <h2>Orders</h2>
             <div className="order-title">
+              <p>No.</p>
               <p>Sku</p>
               <p>Name</p>
               <p>Quantity</p>

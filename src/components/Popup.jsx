@@ -1,6 +1,7 @@
 import React from "react";
 import "./popup.css";
 import icon from "../images/box.png";
+import PropTypes from "prop-types";
 
 const Popup = ({ order, closePopup }) => {
   return (
@@ -51,6 +52,11 @@ const Popup = ({ order, closePopup }) => {
       </div>
     </div>
   );
+};
+
+Popup.propTypes = {
+  order: PropTypes.object.isRequired,
+  closePopup: PropTypes.func.isRequired,
 };
 
 export default Popup;
