@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Logo from "./images/ecommerce.png";
 import Item from "./components/Item";
+import Form from "./components/Form";
 
 function App() {
   const [orders, setOrders] = useState([]);
@@ -23,6 +24,11 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
+  // * Funcion que tome las ordenes actuales y agregue la nueva
+  const newOrder = (order) => {
+    setOrders([...orders, order]);
+  };
+
   return (
     <React.Fragment>
       <div className="title">
@@ -32,7 +38,10 @@ function App() {
 
       <div className="container">
         <div className="row">
-          <div className="one-half column">Form:</div>
+          <div className="one-half column">
+            <h2>New Order</h2>
+            <Form newOrder={newOrder} />
+          </div>
           <div className="one-half column">
             <h2>Orders</h2>
             <div className="order-title">
@@ -41,8 +50,8 @@ function App() {
               <p>Quantity</p>
               <p>Price</p>
             </div>
-            {orders.map((order, key) => (
-              <Item order={order} key={key} />
+            {orders.map((order) => (
+              <Item order={order} key={order.id} />
             ))}
           </div>
         </div>
