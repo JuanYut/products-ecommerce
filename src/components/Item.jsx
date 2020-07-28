@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Popup from "./Popup";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 function Item({ order }) {
   const [popup, setPopup] = useState(false);
@@ -11,6 +11,7 @@ function Item({ order }) {
         <Popup order={order} closePopup={() => setPopup(!popup)} />
       ) : null}
       <div className="order" onClick={() => setPopup(!popup)}>
+        <p>{order.number}</p>
         <p>{order.items[0].sku}</p>
         <p>{order.items[0].name}</p>
         <p>{order.items[0].quantity}</p>
@@ -20,8 +21,8 @@ function Item({ order }) {
   );
 }
 
-// Item.propTypes = {
-//   item: PropTypes.object.isRequired,
-// };
+Item.propTypes = {
+  order: PropTypes.object.isRequired,
+};
 
 export default Item;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import uuid from "uuid/dist/v4";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 function Form({ newOrder }) {
   const [order, setOrder] = useState({
@@ -13,6 +13,7 @@ function Form({ newOrder }) {
         price: "",
       },
     ],
+    number: "",
     shippingMethod: "",
     note: "",
     units: { weight: "" },
@@ -37,7 +38,7 @@ function Form({ newOrder }) {
   };
 
   // Extraer los valores
-  const { items, shippingMethod, note, units, dates } = order;
+  const { items, number, shippingMethod, note, units, dates } = order;
 
   // * Submit del formulario
   const handleSubmit = (e) => {
@@ -49,6 +50,7 @@ function Form({ newOrder }) {
       items[0].name.trim() === "" ||
       items[0].quantity.trim() === "" ||
       items[0].price.trim() === "" ||
+      number.trim() === "" ||
       shippingMethod.trim() === "" ||
       note.trim() === "" ||
       units.weight.trim() === "" ||
@@ -78,6 +80,7 @@ function Form({ newOrder }) {
           price: "",
         },
       ],
+      number: "",
       shippingMethod: "",
       note: "",
       units: { weight: "" },
@@ -119,7 +122,7 @@ function Form({ newOrder }) {
           <div className="one-half column">
             <label htmlFor="">Quantity</label>
             <input
-              type="text"
+              type="number"
               name="quantity"
               className="u-full-width"
               placeholder="Quantity"
@@ -155,7 +158,7 @@ function Form({ newOrder }) {
           <div className="one-half column">
             <label htmlFor="">Units</label>
             <input
-              type="text"
+              type="number"
               name="units"
               className="u-full-width"
               placeholder="Units"
@@ -170,16 +173,18 @@ function Form({ newOrder }) {
           </div>
         </div>
 
-        <label htmlFor="">Note</label>
-        <textarea
-          name="note"
-          className="u-full-width"
-          placeholder="Note"
-          onChange={handleChange}
-          value={note}
-        ></textarea>
-
         <div className="row">
+          <div className="one-half column">
+            <label htmlFor="">Number</label>
+            <input
+              type="number"
+              name="number"
+              className="u-full-width"
+              placeholder="Number"
+              onChange={handleChange}
+              value={number}
+            />
+          </div>
           <div className="one-half column">
             <label htmlFor="">Date</label>
             <input
@@ -198,6 +203,15 @@ function Form({ newOrder }) {
           </div>
         </div>
 
+        <label htmlFor="">Note</label>
+        <textarea
+          name="note"
+          className="u-full-width"
+          placeholder="Note"
+          onChange={handleChange}
+          value={note}
+        ></textarea>
+
         <button type="submit" className="u-full-width btn-submit">
           New Order
         </button>
@@ -206,8 +220,8 @@ function Form({ newOrder }) {
   );
 }
 
-// Form.propTypes = {
-//   newQuote: PropTypes.func.isRequired,
-// };
+Form.propTypes = {
+  newOrder: PropTypes.func.isRequired,
+};
 
 export default Form;
