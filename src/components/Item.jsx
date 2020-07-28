@@ -5,7 +5,6 @@ import Popup from "./Popup";
 function Item({ order }) {
   const [popup, setPopup] = useState(false);
 
-  console.log(order);
   return (
     <React.Fragment>
       {popup ? (
