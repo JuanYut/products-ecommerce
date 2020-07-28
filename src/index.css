@@ -63,7 +63,8 @@ h2 {
 }
 
 .order:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
+  background-color: #203345;
   cursor: pointer;
 }
 
@@ -119,4 +120,12 @@ label {
   text-transform: uppercase;
   text-align: center;
   font-family: "Staatliches", cursive;
+}
+
+@media only screen and (max-width: 37.5em) {
+  h1,
+  h2 {
+    font-size: 3rem;
+    padding: 0;
+  }
 }
