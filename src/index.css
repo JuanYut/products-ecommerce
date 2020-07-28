@@ -18,8 +18,8 @@ body {
 
 h1,
 h2 {
-  color: white;
-  padding: 3rem 0;
+  color: #34495e;
+  padding: 2rem 0;
   text-align: center;
 
   text-transform: uppercase;
@@ -40,10 +40,83 @@ h2 {
   margin: 0;
   letter-spacing: 0;
   color: white;
+  color: #34495e;
   padding: 0 10px;
 }
 
 .logo {
   display: flex;
   width: 45px;
+}
+
+/* ORDER */
+.order,
+.order-title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #34495e;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  transition: all 0.2s;
+}
+
+.order:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.order-title {
+  padding-bottom: 0;
+  color: #dddd55;
+  font-weight: bold;
+}
+
+.order p {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+/* INPUT DATE TIME */
+input[type="date"],
+input[type="time"],
+input[type="text"],
+input[type="number"] {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  color: #34495e;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+textarea {
+  background-color: white;
+  border: 1px solid #d1d1d1;
+}
+
+label {
+  color: #34495e;
+}
+
+/* BTN-SUBMIT */
+.btn-submit {
+  transition: all 0.2s;
+}
+.btn-submit:hover {
+  transform: scale(1.02);
+}
+
+/* ALERTA ERROR */
+.alert-error {
+  background-color: rgb(255, 100, 100);
+  color: white;
+  padding: 1rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "Staatliches", cursive;
 }

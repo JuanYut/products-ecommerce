@@ -1,7 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Logo from "./images/ecommerce.png";
+import Item from "./components/Item";
+import Form from "./components/Form";
 
 function App() {
+  const [orders, setOrders] = useState([]);
+
+  let token =
+    "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJkM2NIVUVibVJoc1EzeXhNbzV2VnliSTFzaDZCSDJZRCIsImlhdCI6MTU4NTkzMjYzNDU0OH0.tMSht_M3ryQl5IqCirhYR1gb8j3FQ26vILT4Qpx4XrdFz-zUmqbgFYiKTaZHPpB85etRIMhxVoZf6tOrHy0fnA";
+
+  const getOrders = async () => {
+    let res = await axios.get(
+      "https://eshop-deve.herokuapp.com/api/v2/orders",
+      { headers: { Authorization: token } }
+    );
+    let data = await res.data.orders;
+    setOrders(data);
+  };
+
+  useEffect(() => {
+    getOrders();
+    // eslint-disable-next-line
+  }, []);
+
+  // * Funcion que tome las ordenes actuales y agregue la nueva
+  const newOrder = (order) => {
+    setOrders([...orders, order]);
+  };
+
   return (
     <React.Fragment>
       <div className="title">
@@ -11,8 +38,22 @@ function App() {
 
       <div className="container">
         <div className="row">
-          <div className="one-half column">Form:</div>
-          <div className="one-half column">Tabla:</div>
+          <div className="one-half column">
+            <h2>New Order</h2>
+            <Form newOrder={newOrder} />
+          </div>
+          <div className="one-half column">
+            <h2>Orders</h2>
+            <div className="order-title">
+              <p>Sku</p>
+              <p>Name</p>
+              <p>Quantity</p>
+              <p>Price</p>
+            </div>
+            {orders.map((order) => (
+              <Item order={order} key={order.id} />
+            ))}
+          </div>
         </div>
       </div>
     </React.Fragment>
