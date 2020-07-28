@@ -26,7 +26,7 @@ const Popup = ({ order, closePopup }) => {
 
           <div className="popup-info">
             <p>
-              Shipping Method: <span>{order.shippingmethod}</span>
+              Shipping Method: <span>{order.shippingMethod}</span>
             </p>
           </div>
 
