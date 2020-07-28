@@ -105,10 +105,45 @@ label {
 
 /* BTN-SUBMIT */
 .btn-submit {
+  color: #34495e;
+  background-color: #00ed9f;
+  border-color: #00ed9f;
   transition: all 0.2s;
 }
 .btn-submit:hover {
+  color: #34495e;
+  background-color: #16bf86;
+  border-color: #16bf86;
   transform: scale(1.02);
+}
+
+/* BTN_BUY */
+.btn-buy {
+  color: #34495e;
+  background-color: #dddd55;
+  border-color: #dddd55;
+  transition: all 0.2s;
+}
+
+.btn-buy:hover {
+  transform: scale(1.02);
+  color: #34495e;
+  background-color: #c1c13e;
+  border-color: #c1c13e;
+}
+
+.btn-submit:active,
+.btn-buy:active {
+  -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn-submit:focus,
+.btn-buy:focus {
+  outline: none;
+  border: 1px solid transparent;
 }
 
 /* ALERTA ERROR */

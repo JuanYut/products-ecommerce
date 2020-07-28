@@ -1,0 +1,58 @@
+.buyAlert {
+  background-color: #dddd55;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  animation-name: moveInAlert;
+  animation-duration: 10s;
+  animation-timing-function: ease-out;
+}
+
+.buyAlert-image {
+  width: 45px;
+  margin: 0 1rem;
+}
+
+.buyAlert-title {
+  font-size: 2.4rem;
+}
+
+.buyAlert-title,
+.buyAlert-message {
+  color: #34495e;
+  margin: 0;
+  padding: 0;
+}
+
+/* Media Query */
+@media only screen and (max-width: 37.5em) {
+  .buyAlert {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Animation */
+@keyframes moveInAlert {
+  0% {
+    opacity: 0;
+    transform: translateX(-100rem);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-100rem);
+  }
+}

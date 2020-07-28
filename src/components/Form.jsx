@@ -198,10 +198,7 @@ function Form({ newOrder }) {
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="u-full-width button-primary btn-submit"
-        >
+        <button type="submit" className="u-full-width btn-submit">
           New Order
         </button>
       </form>
